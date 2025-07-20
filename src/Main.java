@@ -14,61 +14,41 @@ public class Main {
 
     public static void showResult(String[] slots){
 
-
-        if (slots[0] == slots[1] || slots[1] == slots[2] || slots[0] == slots[2]             ) {
+        if (slots[0] == slots[1] || slots[1] == slots[2] || slots[0] == slots[2]) {
 
             if (slots[0] == slots[1] && slots[0] == slots[2]) {
 
-                if (slots[0].equals("STAR")) {
+                switch (slots[0]){
 
-                    System.out.println("YOU HAVE WON 100 CREDITS!");
-
-                } else if (slots[0].equals("APPLE")) {
-
-                    System.out.println("YOU HAVE WON 10 CREDITS");
-
-                } else if (slots[0].equals("CHERRY")) {
-
-                    System.out.println("YOU HAVE WON 50 CREDITS");
+                    case "STAR" : System.out.println("YOU HAVE WON 100 CREDITS! (3x star)"); break;
+                    case "APPLE" : System.out.println("YOU HAVE WON 10 CREDITS! (3x apple)"); break;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 50 CREDITS! (3x cherry)"); break;
 
                 }
-
             }
             else if (slots[0] == slots[1] || slots[0] == slots[2]){
 
-                if (slots[0].equals("STAR")) {
+                switch (slots[0]){
 
-                    System.out.println("YOU HAVE WON 10 CREDITS!");
-
-                } else if (slots[0].equals("APPLE")) {
-
-                    System.out.println("YOU HAVE WON 1 CREDIT");
-
-                } else if (slots[0].equals("CHERRY")) {
-
-                    System.out.println("YOU HAVE WON 5 CREDITS");
+                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); break;
+                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); break;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); break;
 
                 }
-
             }
             else if (slots[1] == slots[2]){
 
-                if (slots[1].equals("STAR")) {
+                switch (slots[1]){
 
-                    System.out.println("YOU HAVE WON 10 CREDITS!");
-
-                } else if (slots[1].equals("APPLE")) {
-
-                    System.out.println("YOU HAVE WON 1 CREDIT");
-
-                } else if (slots[1].equals("CHERRY")) {
-
-                    System.out.println("YOU HAVE WON 5 CREDITS");
+                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); break;
+                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); break;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); break;
 
                 }
             }
         }
     }
+
 
     public static String[] showSlots(){
 
