@@ -10,7 +10,6 @@ public class Main {
 
     }
 
-
     public static void SlotMachine(){
 
         Scanner scanner = new Scanner(System.in);
@@ -25,20 +24,14 @@ public class Main {
 
             if (credits < 5){
 
-                System.out.println("YOU ARE OUT OF CREDITS! HERE ARE 5 MORE!\n------------------------------------------ " );
-                credits = 5;
+                System.out.println("YOU DONT HAVE ENOUGH CREDITS! HERE ARE 5 MORE!\n------------------------------------------");
+                credits = credits + 5;
 
             }
 
-
-
             creditsUpdate = credits - 5;
 
-
             System.out.println("Anzahl an credits davor: " + credits + " - 5 = " + creditsUpdate);
-
-
-
 
             String[] result = showSlots();
 
@@ -56,25 +49,14 @@ public class Main {
 
         }
 
-
         if (credits == 1){
-            System.out.println("----------------------------------------\nYOU FINISHED WITH " + credits + " CREDIT!");
+            System.out.println("------------------------------------------\nYOU FINISHED WITH " + credits + " CREDIT!");
         }
         else {
-            System.out.println("----------------------------------------\nYOU FINISHED WITH " + credits + " CREDITS!");
+            System.out.println("------------------------------------------\nYOU FINISHED WITH " + credits + " CREDITS!");
         }
 
-
-
     }
-
-
-
-
-
-
-
-
 
 
 
