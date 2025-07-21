@@ -7,7 +7,6 @@ public class Main {
 
         SlotMachine();
 
-
     }
 
     public static void SlotMachine(){
@@ -18,13 +17,13 @@ public class Main {
 
         int creditsUpdate;
 
-        boolean weiter = true;
+        String weiter = "y";
 
-        while (weiter) {
+        while (weiter.toLowerCase().equals("y")) {
 
             if (credits < 5){
 
-                System.out.println("YOU DONT HAVE ENOUGH CREDITS! HERE ARE 5 MORE!\n------------------------------------------");
+                System.out.println("YOU DONT HAVE ENOUGH CREDITS! HERE ARE 5 MORE!\n------------------------------------------------");
                 credits = credits + 5;
 
             }
@@ -43,19 +42,18 @@ public class Main {
 
             credits = creditsUpdate;
 
-            System.out.println("continue? ");
+            System.out.println("continue? Y/N");
 
-            weiter = scanner.nextBoolean();
+            weiter = scanner.next();
 
         }
 
         if (credits == 1){
-            System.out.println("------------------------------------------\nYOU FINISHED WITH " + credits + " CREDIT!");
+            System.out.println("------------------------------------------------\nYOU FINISHED WITH " + credits + " CREDIT!");
         }
         else {
-            System.out.println("------------------------------------------\nYOU FINISHED WITH " + credits + " CREDITS!");
+            System.out.println("------------------------------------------------\nYOU FINISHED WITH " + credits + " CREDITS!");
         }
-
     }
 
 
