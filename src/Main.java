@@ -1,52 +1,119 @@
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        String[] result = showSlots();
+        SlotMachine();
 
-        System.out.println(Arrays.toString(result));
-
-        showResult(result);
 
     }
 
 
-    public static void showResult(String[] slots){
+    public static void SlotMachine(){
 
-        if (slots[0] == slots[1] || slots[1] == slots[2] || slots[0] == slots[2]) {
+        Scanner scanner = new Scanner(System.in);
 
-            if (slots[0] == slots[1] && slots[0] == slots[2]) {
+        int credits = 4;
+
+        int creditsUpdate;
+
+        boolean weiter = true;
+
+        while (weiter) {
+
+            if (credits < 5){
+
+                System.out.println("YOU ARE OUT OF CREDITS! HERE ARE 5 MORE!\n------------------------------------------ " );
+                credits = 5;
+
+            }
+
+
+
+            creditsUpdate = credits - 5;
+
+
+            System.out.println("Anzahl an credits davor: " + credits + " - 5 = " + creditsUpdate);
+
+
+
+
+            String[] result = showSlots();
+
+            System.out.println(Arrays.toString(result));
+
+            creditsUpdate = creditsUpdate + showResult(result);
+
+            System.out.println("Anzahl an credits danach: " + creditsUpdate);
+
+            credits = creditsUpdate;
+
+            System.out.println("continue? ");
+
+            weiter = scanner.nextBoolean();
+
+        }
+
+
+        if (credits == 1){
+            System.out.println("----------------------------------------\nYOU FINISHED WITH " + credits + " CREDIT!");
+        }
+        else {
+            System.out.println("----------------------------------------\nYOU FINISHED WITH " + credits + " CREDITS!");
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public static int showResult(String[] slots){
+
+        if (Objects.equals(slots[0], slots[1]) || Objects.equals(slots[1], slots[2]) || Objects.equals(slots[0], slots[2])) {
+
+            if (Objects.equals(slots[0], slots[1]) && Objects.equals(slots[0], slots[2])) {
 
                 switch (slots[0]){
 
-                    case "STAR" : System.out.println("YOU HAVE WON 100 CREDITS! (3x star)"); break;
-                    case "APPLE" : System.out.println("YOU HAVE WON 10 CREDITS! (3x apple)"); break;
-                    case "CHERRY" : System.out.println("YOU HAVE WON 50 CREDITS! (3x cherry)"); break;
+                    case "STAR" : System.out.println("YOU HAVE WON 100 CREDITS! (3x star)"); return 100;
+                    case "APPLE" : System.out.println("YOU HAVE WON 10 CREDITS! (3x apple)"); return 10;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 50 CREDITS! (3x cherry)"); return 50;
 
                 }
             }
-            else if (slots[0] == slots[1] || slots[0] == slots[2]){
+            else if (Objects.equals(slots[0], slots[1]) || Objects.equals(slots[0], slots[2])){
 
                 switch (slots[0]){
 
-                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); break;
-                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); break;
-                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); break;
+                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); return 10;
+                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); return 1;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); return 5;
 
                 }
             }
-            else if (slots[1] == slots[2]){
+            else if (Objects.equals(slots[1], slots[2])){
 
                 switch (slots[1]){
 
-                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); break;
-                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); break;
-                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); break;
+                    case "STAR" : System.out.println("YOU HAVE WON 10 CREDITS! (2x star)"); return 10;
+                    case "APPLE" : System.out.println("YOU HAVE WON 1 CREDIT! (2x apple)"); return 1;
+                    case "CHERRY" : System.out.println("YOU HAVE WON 5 CREDITS! (2x cherry)"); return 5;
 
                 }
             }
         }
+        return 0;
     }
 
 
